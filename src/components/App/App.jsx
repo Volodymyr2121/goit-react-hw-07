@@ -5,7 +5,6 @@ import ContactList from '../ContactList/ContactList'
 import SearchBox from '../SearchBox/SearchBox'
 import { useEffect } from 'react'
 import { fetchContacts } from '../../redux/contactsOps'
-import { addContact } from '../../redux/contactsOps'
 
 
 
@@ -18,15 +17,11 @@ useEffect(() => {
     dispatch(fetchContacts());
 }, [dispatch]);
     
-    const handleAddContacts = (newContact) => {
-        dispatch(addContact(newContact))
-    }
-
     
 
     return (<div>
         <h1>Phonebook</h1>
-        <ContactForm onAdd={ handleAddContacts } />
+        <ContactForm />
         <SearchBox />
         {loading && <p>Loading...</p>}
         {isError && <p>{isError}</p>}
